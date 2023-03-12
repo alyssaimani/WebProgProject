@@ -18,7 +18,7 @@ Route::get('/', function () {
 });
 
 
-Route::get('/login', LoginController);
+Route::get('/login', LoginController::class);
 
-Route::post('/register', );
+Route::post('/register', RegisterController::class);
 
