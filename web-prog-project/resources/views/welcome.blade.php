@@ -1,3 +1,8 @@
+{{$user->name}}
+@foreach ($erros->all() as $error)
+    {{$error}}
+@endforeach
+
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>

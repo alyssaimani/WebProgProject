@@ -1,13 +1,10 @@
 <?php
 
-namespace App\Http\LoginController;
+namespace App\Http\Controllers;
 
-use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
-use Illuminate\Foundation\Bus\DispatchesJobs;
-use Illuminate\Foundation\Validation\ValidatesRequests;
-use Illuminate\Routing\LoginController as BaseController;
+use Illuminate\Http\Request;
 
-class LoginController extends BaseController
+class LoginController extends Controller
 {
-    use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
+    //
 }

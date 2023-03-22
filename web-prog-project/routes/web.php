@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\RegisterController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,7 +20,8 @@ Route::get('/', function () {
 });
 
 
-Route::get('/login', LoginController::class);
+Route::get('/login', [LoginController::class, //methodName
+]);
 
-Route::post('/register', RegisterController::class);
-
+Route::post('/register', [RegisterControllerller::class, //methodname
+]);

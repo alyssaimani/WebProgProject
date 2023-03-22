@@ -25,6 +25,8 @@ Our project's member consists of:
 - `php artisan migrate` --> for run the migration 
 - `php artisan migrate:rollback` --> for run the rollback of migration
 - `php artisan make:migration {name of the class file}` --> for creating migration class
+- `php artisan storage:link` --> for creating storage for saving image
+- `php artisan make:controller {name of the controller class}` --> for creating new controller
 
 ## Description
 This project is intented for our class project named Web Programming class in Binus University. The main goal of this project to create website by laravel framework. Our project name is JRamedia, this is a website of selling book or stationary with the form like e-commerce.
