@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('transaction', function (Blueprint $table) {
+        Schema::create('transactions', function (Blueprint $table) {
             $table->uuid('transactionId');
             $table->dateTime('transactionDate');
             $table->unsignedBigInteger('cartDetailId');
