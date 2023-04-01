@@ -3,6 +3,8 @@
 use App\Http\Controllers\SessionController;
 use Illuminate\Support\Facades\Route;
 
+use function PHPSTORM_META\map;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,10 +17,13 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
 });
-
 
 Route::get('/login', [SessionController::class, "login"]);
 
 Route::post('/register', [SessionController::class, "register"]);
+
+Route::get('/about_us', function () {
+    return view('about_us');
+});
