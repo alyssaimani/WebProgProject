@@ -10,7 +10,7 @@ class SessionController extends Controller
         //view
     }
 
-    public function regist(){
-
+    public function register(){
+        
     }
 }

@@ -1,7 +1,6 @@
 <?php
 
-use App\Http\Controllers\LoginController;
-use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\SessionController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,8 +19,6 @@ Route::get('/', function () {
 });
 
 
-Route::get('/login', [LoginController::class, //methodName
-]);
+Route::get('/login', [SessionController::class, "login"]);
 
-Route::post('/register', [RegisterControllerller::class, //methodname
-]);
+Route::post('/register', [SessionController::class, "register"]);
