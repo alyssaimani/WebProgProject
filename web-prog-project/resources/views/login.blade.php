@@ -1,8 +1,8 @@
-@extends('layouts.template')
+@extends('layouts.main')
 
 @section('container')
     <div class="d-flex justify-content-center">
-        <div class="card p-5 m-5 d-flex flex-row" style="width: 75%">
+        <div class="card p-5 m-5 d-flex flex-row" style="width: 75%; height: 600px">
         <form action="" style="width: 35%">
             <h2>Login</h2>
             <p class="m-0 mt-4">Your Email</p>

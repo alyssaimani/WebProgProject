@@ -30,3 +30,11 @@ Route::get('/register', function () {
 Route::get('/about_us', function () {
     return view('about_us');
 });
+
+Route::get('/home_admin', function () {
+    return view('home_admin');
+});
+
+Route::get('/home_customer', function () {
+    return view('home_customer');
+});
