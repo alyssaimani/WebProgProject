@@ -3,12 +3,13 @@
 @section('container')
     <div class="d-flex justify-content-center">
         <div class="card p-5 m-5 d-flex flex-row" style="width: 75%; height: 600px">
-        <form action="" style="width: 35%">
+        <form action="/login" method="POST" style="width: 35%">
+            @csrf
             <h2>Login</h2>
             <p class="m-0 mt-4">Your Email</p>
-            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+            <input type="text" name="email" id="email" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" value="{{ old('email') }}" autofocus>
             <p class="m-0 mt-4">Password</p>
-            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+            <input type="password" name="password" id="password" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
             <div class="d-flex mt-4">
                 <div class="form-check">
                     <input class="form-check-input w-64" type="checkbox" value="" id="flexCheckDefault">
@@ -20,10 +21,31 @@
                 <a href="/register">Sign Up Here!</a>
             </div>
             <div class="d-flex justify-content-center">
-                <button class="btn bg-primary text-light mt-5">
+                <button class="btn bg-primary text-light mt-5 mb-3">
                 Login
             </button>
             </div>
+            @error('email')
+                <div class="alert alert-danger" role="alert">
+                    {{ $message }}
+                </div>
+            @enderror
+            @error('password')
+                <div class="alert alert-danger" role="alert">
+                    {{ $message }}
+                </div>
+            @enderror
+            @if($message = Session::get('error'))
+                <div class="alert alert-danger" role="alert">
+                    {{ $message }}
+                </div>
+            @endif
+            @if($message = Session::get('success'))
+                <div class="alert alert-success" role="alert">
+                    {{ $message }}
+                </div>
+            @endif
+
         </form>
         <img src="images/login.svg" class="ps-5" style="width: 55%" alt="">
     </div>

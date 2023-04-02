@@ -2,7 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 
-use function PHPSTORM_META\map;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\RegisterController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,23 +17,26 @@ use function PHPSTORM_META\map;
 */
 
 Route::get('/', function () {
-    return view('home');
+    return view('home', [
+        'title' => 'Home'
+    ]);
 });
 
-Route::get('/login', function () {
-    return view('login');
-});
+Route::get('/login', [LoginController::class, 'open'])->middleware('guest');
 
-Route::get('/register', function () {
-    return view('register');
-});
+Route::post('/login', [LoginController::class, 'authenticate']);
 
-Route::get('/about_us', function () {
-    return view('about_us');
-});
+Route::post('/logout', [LoginController::class, 'logout']);
 
-Route::get('/home_admin', function () {
-    return view('home_admin');
+Route::get('/register', [RegisterController::class, 'open'])->middleware('guest');
+
+Route::post('/register', [RegisterController::class, 'store']);
+
+
+Route::get('/about', function () {
+    return view('about',[
+        'title' => 'About Us'
+    ]);
 });
 
 Route::get('/home_customer', function () {
