@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\ProductController;
 use App\Http\Controllers\RegisterController;
 
 /*
@@ -22,7 +23,7 @@ Route::get('/', function () {
     ]);
 });
 
-Route::get('/login', [LoginController::class, 'open'])->middleware('guest');
+Route::get('/login', [LoginController::class, 'open'])->name('login')->middleware('guest');
 
 Route::post('/login', [LoginController::class, 'authenticate']);
 
@@ -31,6 +32,8 @@ Route::post('/logout', [LoginController::class, 'logout']);
 Route::get('/register', [RegisterController::class, 'open'])->middleware('guest');
 
 Route::post('/register', [RegisterController::class, 'store']);
+
+Route::resource('/product', ProductController::class)->middleware('auth');
 
 
 Route::get('/about', function () {

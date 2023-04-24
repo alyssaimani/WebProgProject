@@ -9,7 +9,7 @@
                     @if (auth()->user()->role === "admin")
                         <ul class="navbar-nav ms-auto">
                             <li class="nav-item">
-                                <a class="nav-link" href="#">View Products</a>
+                                <a class="nav-link" href="/product">View Products</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="#">View All Transaction</a>
@@ -40,7 +40,7 @@
                     @else
                         <ul class="navbar-nav ms-auto">
                             <li class="nav-item">
-                                <a class="nav-link" href="#">View Products</a>
+                                <a class="nav-link" href="/product">View Products</a>
                             </li>
                             <form class="d-flex" role="search">
                                 <input class="form-control me-2" style="width: 300px" type="search" placeholder="Search Our product here ..." aria-label="Search">
