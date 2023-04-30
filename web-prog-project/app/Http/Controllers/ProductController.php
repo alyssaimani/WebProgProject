@@ -117,7 +117,7 @@ class ProductController extends Controller
         $validatedData['image'] = $imagePath;
         Product::where('id', $id)
             ->update($validatedData);
-        return redirect('product')->with('success', 'Product successfully updated!');
+        return redirect('product')->with('success', 'Product has been updated!');
     }
 
     /**
@@ -129,6 +129,6 @@ class ProductController extends Controller
     public function destroy($id)
     {
         Product::destroy($id);
-        return redirect('product')->with('success', 'Product successfully deleted!');
+        return redirect('product')->with('success', 'Product has been deleted!');
     }
 }

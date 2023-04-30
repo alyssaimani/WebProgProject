@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,6 +35,8 @@ Route::get('/register', [RegisterController::class, 'open'])->middleware('guest'
 Route::post('/register', [RegisterController::class, 'store']);
 
 Route::resource('/product', ProductController::class)->middleware('auth');
+
+Route::resource('/account', UserController::class)->middleware('auth');
 
 
 Route::get('/about', function () {

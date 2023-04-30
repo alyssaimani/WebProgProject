@@ -15,16 +15,16 @@
                                 <a class="nav-link" href="#">View All Transaction</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">View Account</a>
+                                <a class="nav-link" href="/account">View Account</a>
                             </li>
                             <form class="d-flex" role="search">
                                 <input class="form-control me-2" style="width: 300px" type="search" placeholder="Search Our product here ..." aria-label="Search">
-                                <button class="btn btn-outline-success bg-primary text-light" type="submit"><i class="bi bi-search"></i></button>
+                                <button class="btn btn-outline-success bg-primary text-light me-2" type="submit"><i class="bi bi-search"></i></button>
                             </form>
-                            <div class="collapse navbar-collapse" id="navbarNavDarkDropdown">
+                            <div class="collapse navbar-collapse" id="navbarNavLightDropdown">
                                 <ul class="navbar-nav">
                                     <li class="nav-item dropdown">
-                                    <button class="btn btn-light dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <button class="btn btn-light dropdown-toggle me-2" data-bs-toggle="dropdown" aria-expanded="false">
                                         Profile
                                     </button>
                                     <ul class="dropdown-menu dropdown-menu-light">

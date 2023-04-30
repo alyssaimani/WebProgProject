@@ -13,7 +13,7 @@
 <body>
     @include('partials.navbar')
 
-    <div class="bg-secondary">
+    <div class="bg-secondary" style="min-height: 40rem">
         @yield('container')
     </div>
 
