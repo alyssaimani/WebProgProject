@@ -57,6 +57,7 @@
                                             @csrf
                                             <button type="submit" class="dropdown-item">Logout</button>
                                         </form>
+                                        <li><a class="dropdown-item" href="/cart">My Cart</a></li>
                                     </ul>
                                     </li>
                                 </ul>

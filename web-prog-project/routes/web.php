@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CartController;
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\LoginController;
@@ -37,6 +38,8 @@ Route::post('/register', [RegisterController::class, 'store']);
 Route::resource('/product', ProductController::class)->middleware('auth');
 
 Route::resource('/account', UserController::class)->middleware('auth');
+
+Route::resource('/cart', CartController::class)->middleware('auth');
 
 
 Route::get('/about', function () {
