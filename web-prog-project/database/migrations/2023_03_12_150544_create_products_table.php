@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('products', function (Blueprint $table) {
-            $table->increments('id');
+            $table->id('id');
             $table->string('name');
             $table->double('price');
             $table->string('description')->nullable();
