@@ -12,7 +12,7 @@
                                 <a class="nav-link" href="/product">View Products</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">View All Transaction</a>
+                                <a class="nav-link" href="/transaction">View All Transaction</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="/account">View Account</a>

@@ -14,7 +14,15 @@ class TransactionController extends Controller
      */
     public function index()
     {
-        //
+        $transactions = Transaction::join('carts', 'transactions.cartId', '=', 'carts.id')
+        ->join('users', 'carts.userId', '=', 'users.id')
+        ->join('products', 'carts.productId', '=', 'products.id')
+        ->where('carts.isComplete', 1)
+        ->select('transactions.uuid', 'transactions.created_at', 'users.name', 'products.name', 'products.price', 'carts.quantity', 'carts.total')
+        ->paginate(3);
+
+        // TODO: add transaction view
+        return view('transaction', compact('transactions'));
     }
 
     /**
