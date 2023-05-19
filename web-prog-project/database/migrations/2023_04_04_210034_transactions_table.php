@@ -16,8 +16,8 @@ return new class extends Migration
         Schema::create('transactions', function (Blueprint $table) {
             $table->uuid();
             $table->dateTime('transactionDate');
-            $table->unsignedBigInteger('cartDetailId');
-            $table->foreign('cartDetailId')->references('id')->on('cart_details')->onDelete('cascade');
+            $table->unsignedBigInteger('cartId');
+            $table->foreign('cartId')->references('id')->on('carts')->onDelete('cascade');
             $table->timestamps();
         });
     }

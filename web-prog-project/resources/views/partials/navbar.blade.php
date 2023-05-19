@@ -17,9 +17,10 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="/account">View Account</a>
                             </li>
-                            <form class="d-flex" role="search">
-                                <input class="form-control me-2" style="width: 300px" type="search" placeholder="Search Our product here ..." aria-label="Search">
-                                <button class="btn btn-outline-success bg-primary text-light me-2" type="submit"><i class="bi bi-search"></i></button>
+                            <form class="d-flex" role="search" action="{{ route('product.index')}}" method="GET">
+                                @csrf
+                                <input class="form-control me-2" style="width: 300px" type="text" name="search" id="search" placeholder="Search Our product here ..." aria-label="Search">
+                                <button class="btn btn-outline-success bg-primary text-light" type="submit"><i class="bi bi-search"></i></button>
                             </form>
                             <div class="collapse navbar-collapse" id="navbarNavLightDropdown">
                                 <ul class="navbar-nav">
@@ -42,8 +43,9 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="/product">View Products</a>
                             </li>
-                            <form class="d-flex" role="search">
-                                <input class="form-control me-2" style="width: 300px" type="search" placeholder="Search Our product here ..." aria-label="Search">
+                            <form class="d-flex" role="search" action="{{ route('product.index') }}" method="GET">
+                                @csrf
+                                <input class="form-control me-2" style="width: 300px" type="text" name="search" id="search" placeholder="Search Our product here ..." aria-label="Search">
                                 <button class="btn btn-outline-success bg-primary text-light" type="submit"><i class="bi bi-search"></i></button>
                             </form>
                             <div class="collapse navbar-collapse" id="navbarNavDarkDropdown">
