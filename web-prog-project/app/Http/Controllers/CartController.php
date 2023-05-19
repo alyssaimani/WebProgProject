@@ -15,7 +15,7 @@ class CartController extends Controller
     public function index()
     {
         $items = Cart::all();
-        return view('cart/index', [
+        return view('cart', [
             'title' => 'My Cart',
             'items' => $items
         ]);

@@ -22,7 +22,9 @@ class TransactionController extends Controller
         ->paginate(3);
 
         // TODO: add transaction view
-        return view('transaction', compact('transactions'));
+        return view('transaction', [
+            'title' => 'transaction',
+            compact('transactions')]);
     }
 
     /**
