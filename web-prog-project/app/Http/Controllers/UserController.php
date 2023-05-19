@@ -87,6 +87,7 @@ class UserController extends Controller
             'password' => 'required|min:8|max:20',
             'role' => 'required|in:admin,customer'
         ]);
+        $validatedData['password'] = bcrypt($validatedData['password']);
         User::where('id', $id)
         ->update($validatedData);
         return redirect('account')->with('success', 'Account has been updated!');

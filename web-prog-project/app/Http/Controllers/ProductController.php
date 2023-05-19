@@ -12,9 +12,14 @@ class ProductController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $products = Product::paginate(3);
+        $searchTerm = $request->input('search');
+
+        $products = Product::where('name', 'LIKE', '%'.$searchTerm.'%')
+        ->orWhere('description', 'LIKE', '%'.$searchTerm.'%')
+        ->paginate(3);
+
         return view('product/index', [
             'title' => 'View Products',
             'products' => $products
