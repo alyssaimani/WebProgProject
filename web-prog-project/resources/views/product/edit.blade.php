@@ -1,5 +1,7 @@
 @extends('layouts.main')
 @section('container')
+@auth
+@if (auth()->user()->role === "admin")
 <div class="d-flex justify-content-center">
     <div class="card p-5 m-5 d-flex flex-column" style="width: 75%; height: 600px">
         <form action="/product/{{ $product->id }}" method="POST" style="width: 100%"  enctype="multipart/form-data">
@@ -71,4 +73,16 @@
         </form>
     </div>
 </div>
+@else
+    <div class="alert alert-danger text-center">
+        <strong>Access Denied!</strong> You are not authorized to view this page.
+    </div>
+    <script>
+        setTimeout(function(){
+            window.location.href = '/';
+        }, 3000); // Redirect after 3 seconds
+    </script>
+@endif
+@endauth
+
 @endsection
