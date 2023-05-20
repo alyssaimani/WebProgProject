@@ -1,5 +1,7 @@
 @extends('layouts.main')
 @section('container')
+@auth
+@if (auth()->user()->role === "customer")
     @if($message = Session::get('success'))
         <div class="alert alert-success alert-dismissible fade show" role="alert">
             {{ $message }}
@@ -57,4 +59,14 @@
         
     </div>
 
-@endsection
+@else
+    <div class="alert alert-danger text-center">
+        <strong>Please login with customer role!</strong>
+    </div>
+    <script>
+        setTimeout(function(){
+            window.location.href = '/';
+        }, 3000); // Redirect after 3 seconds
+    </script>
+@endif
+@endauth

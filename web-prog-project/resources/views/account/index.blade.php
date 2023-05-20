@@ -1,6 +1,8 @@
 @extends('layouts.main')
 
 @section('container')
+@auth
+@if (auth()->user()->role === "admin")
     @if($message = Session::get('success'))
         <div class="alert alert-success alert-dismissible fade show" role="alert">
             {{ $message }}
@@ -52,5 +54,17 @@
         
     </div>
     
+
+@else
+    <div class="alert alert-danger text-center">
+        <strong>Access Denied!</strong> You are not authorized to view this page.
+    </div>
+    <script>
+        setTimeout(function(){
+            window.location.href = '/';
+        }, 3000); // Redirect after 3 seconds
+    </script>
+@endif
+@endauth
 
 @endsection
