@@ -18,13 +18,13 @@ class TransactionController extends Controller
         ->join('users', 'carts.userId', '=', 'users.id')
         ->join('products', 'carts.productId', '=', 'products.id')
         ->where('carts.isComplete', 1)
-        ->select('transactions.uuid', 'transactions.created_at', 'users.name', 'products.name', 'products.price', 'carts.quantity', 'carts.total')
-        ->paginate(3);
+        ->select('transactions.uuid', 'transactions.created_at as transactionDate', 'users.name as username', 'products.name as productName', 'products.price as productPrice', 'carts.quantity', 'carts.total')
+        ->paginate(10);
 
-        // TODO: add transaction view
         return view('transaction', [
             'title' => 'transaction',
-            compact('transactions')]);
+            'transactions' => $transactions
+        ]);
     }
 
     /**

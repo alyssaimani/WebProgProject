@@ -20,27 +20,20 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                <th scope="row">[Transaction ID]</th>
-                <td>[Transaction Date]</td>
-                <td>[Username]</td>
-                <td>[Product Name]</td>
-                <td>[Price]</td>
-                <td>[Quantity]</td>
-                <td>[Total]</td>
-                </tr>
-                <tr>
-                <th scope="row">[Transaction ID]</th>
-                <td>[Transaction Date]</td>
-                <td>[Username]</td>
-                <td>[Product Name]</td>
-                <td>[Price]</td>
-                <td>[Quantity]</td>
-                <td>[Total]</td>
-                </tr>
+                @foreach ($transactions as $transaction)
+                    <tr>
+                        <td>{{ $transaction->uuid }}</td>
+                        <td>{{ $transaction->transactionDate }}</td>
+                        <td>{{ $transaction->username }}</td>
+                        <td>{{ $transaction->productName }}</td>
+                        <td>{{ $transaction->productPrice }}</td>
+                        <td>{{ $transaction->quantity }}</td>
+                        <td>{{ $transaction->total }}</td>
+                    </tr>
+                @endforeach
             </tbody>
             </table>
-
+            {{ $transactions->links() }}
         </div>
 
         
