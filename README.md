@@ -21,6 +21,13 @@ Our project's member consists of:
 - Starting the application with `php artisan serve`
 - Done!!!
 
+## Get Started (Migrate & Seeding)
+1. `php artisan migrate:fresh --seed`
+2. `php artisan db:seed --class=UserSeeder`
+3. `php artisan db:seed --class=ProductSeeder`
+4. `php artisan db:seed --class=CartSeeder`
+5. `php artisan db:seed --class=TransactionSeeder`
+
 ## List of Command
 - `php artisan serve` --> for opening port for local host
 - `php artisan migrate` --> for run the migration 
