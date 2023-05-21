@@ -45,9 +45,11 @@
                                                 <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this product?')">Delete</button>
                                             </form>
                                         @else
-
-                                            <form action="#" method="POST">
+                                            <form action="{{ route('cart.addProductToCart') }}" method="POST">
                                                 @csrf
+                                                @method('POST')
+                                                <input type="hidden" name="userId" value="{{ auth()->user()->id }}">
+                                                <input type="hidden" name="productId" value="{{ $product->id }}">
                                                 <button type="submit" class="btn btn-primary">Add to Cart</button>
                                             </form>
                                         @endif
