@@ -59,7 +59,10 @@
                                             @csrf
                                             <button type="submit" class="dropdown-item">Logout</button>
                                         </form>
-                                        <li><a class="dropdown-item" href="/cart">My Cart</a></li>
+                                        <form action="{{ route('cart.index') }}" method="GET">
+                                            <input type="hidden" name="id" value="{{ auth()->user()->id }}">
+                                            <button type="submit" class="dropdown-item">My Cart</button>
+                                        </form>                                        
                                     </ul>
                                     </li>
                                 </ul>
