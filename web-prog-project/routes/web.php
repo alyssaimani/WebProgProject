@@ -44,6 +44,8 @@ Route::resource('/cart', CartController::class)->middleware('auth');
 
 Route::post('/cart/checkout', [CartController::class, 'checkout'])->name('cart.checkout');
 
+Route::post('/cart/add-to-cart', [CartController::class, 'addProductToCart'])->name('cart.addProductToCart');
+
 Route::resource('/transaction', TransactionController::class)->middleware('auth');
 
 Route::get('/about', function () {

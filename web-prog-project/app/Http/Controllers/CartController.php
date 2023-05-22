@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Cart;
+use App\Models\Product;
 use App\Models\Transaction;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
@@ -134,4 +135,35 @@ class CartController extends Controller
         return redirect()->route('cart.index', ['id' => $userId])->with('success', 'Successfully checked out!');
     }
 
+    public function addProductToCart(Request $request)
+    {
+        $userId = $request->input('userId');
+        $productId = $request->input('productId');
+
+        $product = Product::where('id', $productId)
+            ->select('products.price as productPrice')
+            ->first();
+
+        $cart = Cart::where('userId', $userId)
+            ->where('productId', $productId)
+            ->first();
+
+        if ($cart) {
+            // Product already exists in the cart, update the cart
+            $cart->quantity++;
+            $cart->total = $cart->quantity * $product->productPrice;
+            $cart->save();
+        } else {
+            // Product does not exist in the cart, create a new cart
+            $newCart = new Cart();
+            $newCart->userId = $userId;
+            $newCart->productId = $productId;
+            $newCart->quantity = 1;
+            $newCart->total = 1 * $product->productPrice;
+            $newCart->isComplete = 0;
+            $newCart->save();
+        }
+
+        return redirect()->route('cart.index', ['id' => $userId])->with('success', 'Successfully updated!');
+    }
 }
