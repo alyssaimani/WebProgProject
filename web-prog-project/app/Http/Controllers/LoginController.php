@@ -4,13 +4,16 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Cookie;
 
 class LoginController extends Controller
 {
-    public function open()
+    public function open(Request $request)
     {
+        $email =session(["email" => $request->email]);
         return view('login',[
-            'title' => 'Login'
+            'title' => 'Login',
+            'email' => $email
         ]);
     }
 
@@ -21,10 +24,14 @@ class LoginController extends Controller
             'password' => 'required|min:8|max:20'
         ]);
 
+        if ($request->remember) {
+            Cookie::queue(Cookie::make('remember', true, 120));
+        }
+        
         if(Auth::attempt($credentials))
         {
             $request->session()->regenerate();
-
+            
             return redirect()->intended('/');
         }
 

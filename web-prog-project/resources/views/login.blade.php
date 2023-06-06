@@ -10,15 +10,22 @@
             <input type="text" name="email" id="email" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" value="{{ old('email') }}" autofocus>
             <p class="m-0 mt-4">Password</p>
             <input type="password" name="password" id="password" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
-            <div class="d-flex mt-4">
-                <div class="form-check">
-                    <input class="form-check-input w-64" type="checkbox" value="" id="flexCheckDefault">
+            <div class="container p-0 mt-4">
+                <div class="row">
+                    <div class="form-check col-5">
+                    <input class="form-check-input w-64" name="remember" type="checkbox" id="flexCheckDefault" 
+                    @if (Cookie::get('remember'))
+                        checked
+                    @endif>
                     <label class="form-check-label" for="flexCheckDefault">
                         Remember me
                     </label>
                 </div>
-                <p class="ps-3">New here?</p>
-                <a href="/register">Sign Up Here!</a>
+                <div class="d-flex justify-content-end col">
+                    <p>New here?</p>
+                    <a href="/register">Sign Up Here!</a>
+                </div>
+                </div>
             </div>
             <div class="d-flex justify-content-center">
                 <button class="btn bg-primary text-light mt-5 mb-3">
