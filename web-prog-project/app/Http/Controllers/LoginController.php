@@ -26,12 +26,18 @@ class LoginController extends Controller
 
         if ($request->remember) {
             Cookie::queue(Cookie::make('remember', true, 120));
+            Cookie::queue(Cookie::make('email', $request->email, 120));
+            Cookie::queue(Cookie::make('password', $request->password, 120));
         }
+        
+    else {
+        Cookie::queue(Cookie::forget('remember'));
+    }
         
         if(Auth::attempt($credentials))
         {
             $request->session()->regenerate();
-            
+
             return redirect()->intended('/');
         }
 
