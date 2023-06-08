@@ -30,9 +30,9 @@ class LoginController extends Controller
             Cookie::queue(Cookie::make('password', $request->password, 120));
         }
         
-    else {
-        Cookie::queue(Cookie::forget('remember'));
-    }
+        else {
+            Cookie::queue(Cookie::forget('remember'));
+        }
         
         if(Auth::attempt($credentials))
         {
